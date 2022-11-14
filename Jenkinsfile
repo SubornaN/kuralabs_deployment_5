@@ -29,8 +29,10 @@ pipeline {
         stage ('CreateContainer') {
             agent{label 'agentDocker'}
             steps {
+                sh '''#!/bin/bash
                 docker build -t url-shortner:v1 .
                 docker run -p 8081:8081 url-shortner:v1
+                '''
             }
         }  
     }
