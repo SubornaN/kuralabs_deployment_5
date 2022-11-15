@@ -35,5 +35,15 @@ pipeline {
                 '''
             }
         }  
+        stage ('DockerhubImage') {
+            agent{label 'agentDocker'}
+            steps {
+                sh '''
+                docker commit web_app web_app:v1
+                docker tag web_app:v1 suborna/web_app:v1
+                docker push suborna/web_app:v1
+                '''
+            }
+        }
     }
 }
