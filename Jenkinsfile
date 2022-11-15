@@ -42,6 +42,8 @@ pipeline {
                 docker commit web_app web_app:v1
                 docker tag web_app:v1 suborna/web_app:v1
                 docker push suborna/web_app:v1
+                docker stop web_app
+                docker rm web_app
                 '''
             }
         }
@@ -79,7 +81,7 @@ pipeline {
             }
         }
         stage('Destroy') {
-            agent{label 'terraform_agent'}
+            agent{label 'agentTerraform'}
             steps {
                 withCredentials([string(credentialsId: 'AWS_ACCESS_KEY', variable: 'aws_access_key'),
                     string(credentialsId: 'AWS_SECRET_KEY', variable: 'aws_secret_key')]) {
