@@ -72,7 +72,7 @@ resource "aws_ecs_service" "aws-ecs-service" {
       aws_subnet.private_a.id,
       aws_subnet.private_b.id
     ]
-    assign_public_ip = true
+    assign_public_ip = false
     security_groups  = [aws_security_group.ingress_app.id]
   }
 
