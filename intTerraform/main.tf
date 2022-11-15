@@ -30,7 +30,7 @@ resource "aws_ecs_task_definition" "aws-ecs-task" {
   [
   {
       "name": "url-container",
-      "image": "tsanderson77/classact:latest",
+      "image": "suborna/webapp:v1",
       "logConfiguration": {
         "logDriver": "awslogs",
         "options": {
@@ -52,8 +52,8 @@ resource "aws_ecs_task_definition" "aws-ecs-task" {
   network_mode             = "awsvpc"
   memory                   = "1024"
   cpu                      = "512"
-  execution_role_arn       = "arn:aws:iam::266686430719:role/ecsTaskExecutionRole"
-  task_role_arn            = "arn:aws:iam::266686430719:role/ecsTaskExecutionRole"
+  execution_role_arn       = "arn:aws:iam::719354576053:role/deploy5-task"
+  task_role_arn            = "arn:aws:iam::719354576053:role/deploy5-task"
 
 }
 
