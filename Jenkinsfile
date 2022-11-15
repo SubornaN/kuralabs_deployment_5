@@ -31,9 +31,7 @@ pipeline {
             steps {
                 sh '''#!/bin/bash
                 docker build -t url-shortner:v1 .
-                docker run --rm -d --name web_app -p 8081:8081 url-shortner:v1
-                sleep 30
-                docker stop web_app
+                docker run -d --name web_app -p 8081:8081 url-shortner:v1
                 '''
             }
         }  
