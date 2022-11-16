@@ -41,8 +41,7 @@ resource "aws_ecs_task_definition" "aws-ecs-task" {
       },
       "portMappings": [
         {
-          "containerPort": 5000,
-          "hostPort": 8081
+          "containerPort": 5000
         }
       ]
     }
